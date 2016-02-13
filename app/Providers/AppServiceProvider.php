@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace TubeTracker\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace TubeTracker\Jobs;
 
 use Illuminate\Bus\Queueable;
 

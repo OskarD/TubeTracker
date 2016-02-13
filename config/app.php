@@ -151,10 +151,10 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        TubeTracker\Providers\AppServiceProvider::class,
+        TubeTracker\Providers\AuthServiceProvider::class,
+        TubeTracker\Providers\EventServiceProvider::class,
+        TubeTracker\Providers\RouteServiceProvider::class,
 
     ],
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace TubeTracker\Events;
 
 abstract class Event
 {

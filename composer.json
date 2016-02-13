@@ -21,7 +21,7 @@
             "database"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "TubeTracker\\": "app/"
         }
     },
     "autoload-dev": {

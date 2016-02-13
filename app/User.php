@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace TubeTracker;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
