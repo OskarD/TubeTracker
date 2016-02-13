@@ -2,6 +2,7 @@
 
 namespace TubeTracker\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use TubeTracker\YouTube\Channel;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,7 @@ class ChannelController extends Controller
      */
     public function index()
     {
-        $channels = Auth::user->channels;
+        $channels = Auth::user()->channels;
 
         return view('channel.index', compact('channels'));
     }
@@ -29,7 +30,7 @@ class ChannelController extends Controller
      */
     public function create()
     {
-        //
+        return view('channel.create');
     }
 
     /**
@@ -40,7 +41,13 @@ class ChannelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'channel_id' => 'required'
+        ]);
+
+        Auth::user()->channels()->attach(Channel::firstOrCreate(['youtube_id' => $request->channel_id]));
+
+        return view('channel.index');
     }
 
     /**
@@ -51,7 +58,7 @@ class ChannelController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('channel.show');
     }
 
     /**
@@ -62,7 +69,7 @@ class ChannelController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('channel.edit');
     }
 
     /**

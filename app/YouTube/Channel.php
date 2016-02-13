@@ -14,12 +14,11 @@ class Channel extends Model
      */
     protected $fillable = [
         'id',
-        'youtube_id',
-        'title'
+        'youtube_id'
     ];
 
     public function users()
     {
-        return $this->belongsToMany(User::class)
+        return $this->belongsToMany(User::class);
     }
 }
