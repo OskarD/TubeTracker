@@ -17,6 +17,7 @@
 </head>
 <body id>
     @include('partials.nav')
+    @include('flash::message')
     @yield('content')
 
     <!-- Scripts -->
