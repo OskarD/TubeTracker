@@ -9,7 +9,7 @@
             <ul>
             @foreach($channels as $channel)
                 <li>
-                    {{ $channel->title }}
+                    <a href="{{ action('ChannelController@show', $channel->id) }}">{{ $channel->youtube_id }}</a>
                 </li>
             @endforeach
             </ul>

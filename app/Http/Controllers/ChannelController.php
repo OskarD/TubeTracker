@@ -3,6 +3,7 @@
 namespace TubeTracker\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Laracasts\Flash\Flash;
 use TubeTracker\YouTube\Channel;
 use Illuminate\Http\Request;
 
@@ -45,9 +46,13 @@ class ChannelController extends Controller
             'channel_id' => 'required'
         ]);
 
-        Auth::user()->channels()->attach(Channel::firstOrCreate(['youtube_id' => $request->channel_id]));
+        $channel = Channel::firstOrCreate(['youtube_id' => $request->channel_id]);
 
-        return view('channel.index');
+        Auth::user()->channels()->attach($channel);
+
+        Flash::success('Successfully added channel ' . $channel->youtube_id . ' to tracked channels!');
+
+        return redirect(action('ChannelController@index'));
     }
 
     /**
@@ -58,7 +63,8 @@ class ChannelController extends Controller
      */
     public function show($id)
     {
-        return view('channel.show');
+        $channel = Channel::findOrFail($id);
+        return view('channel.show', compact('channel'));
     }
 
     /**
@@ -92,6 +98,12 @@ class ChannelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $channel = Channel::findOrFail($id);
+
+        Auth::user()->channels()->detach($channel->id);
+
+        Flash::success('Successfully stopped tracking channel ' . $channel->youtube_id);
+
+        return view('channel.index');
     }
 }
