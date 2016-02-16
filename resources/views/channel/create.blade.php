@@ -1,9 +1,14 @@
 @extends('layouts.master')
 @section('content')
-    <h1>Track A New Channel</h1>
-
-    <div id="searchArea">
-    <yt-channel-search></yt-channel-search>
+    <div class="col-md-10 col-md-offset-1">
+        <div class="panel panel-default">
+            <div class="panel-heading">Track A New Channel</div>
+            <div class="panel-body">
+                <div id="searchArea">
+                    <yt-channel-search></yt-channel-search>
+                </div>
+            </div>
+        </div>
     </div>
 
     <template id="yt-channel-search-template">
