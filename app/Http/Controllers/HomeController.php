@@ -33,6 +33,7 @@ class HomeController extends Controller
         $youtube = new \Google_Service_YouTube($client);
 
         $videoIds = "";
+        $videos = [];
 
         foreach(Auth::user()->channels as $channel)
         {
